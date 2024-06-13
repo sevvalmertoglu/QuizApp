@@ -26,3 +26,11 @@ class ViewController: UIViewController {
     
 }
 
+extension UIViewController {
+    func makeAlert(titleInput: String, messageInput: String) {
+        let alertController = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+}

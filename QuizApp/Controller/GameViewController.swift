@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var multipleButtonsView: UIView!
     @IBOutlet weak var booleanButtonsView: UIView!
+    
     @IBOutlet weak var quizLabel: UILabel!
     @IBOutlet weak var quizProgressView: UIProgressView!
     

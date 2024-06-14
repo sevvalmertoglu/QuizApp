@@ -25,16 +25,13 @@ class TypeViewController: UIViewController {
     @IBAction func allTypeButtonsClicked(_ sender: UIButton) {
         var questionTypeSelected: String?
         
-        switch(sender.currentTitle){
-        case "TRUE / FALSE":
-            questionTypeSelected = "boolean"
-            break
-        case "MULTIPLE CHOICE":
-            questionTypeSelected = "multiple"
-            break
-        case "BOTH":
+        switch(sender.tag){
+        case 1:
             questionTypeSelected = nil
-            break
+        case 2:
+            questionTypeSelected = "boolean"
+        case 3:
+            questionTypeSelected = "multiple"
         default:
             print("ERROR")
         }
@@ -45,18 +42,17 @@ class TypeViewController: UIViewController {
     
     @IBAction func allDifficultyButtonsClicked(_ sender: UIButton) {
         
-        switch(sender.currentTitle){
-        case "Easy":
+        switch(sender.tag){
+        case 4:
             settingsOptions?.difficulty = "easy"
             break
-        case "Medium":
+        case 5:
             settingsOptions?.difficulty = "medium"
             break
-        case "Hard":
+        case 6:
             settingsOptions?.difficulty = "hard"
             break
         default:
-            print("error")
             settingsOptions?.difficulty = nil
         }
     }

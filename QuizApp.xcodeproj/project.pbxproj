@@ -15,6 +15,18 @@
 		A90ABABE2C18B8D5000131DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A90ABABD2C18B8D5000131DC /* Assets.xcassets */; };
 		A90ABAC12C18B8D5000131DC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A90ABAC02C18B8D5000131DC /* Base */; };
 		A957651C2C1C271000834BE7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957651B2C1C271000834BE7 /* UserProfileViewController.swift */; };
+		A976E8F12C1C3E630009D1B0 /* QuizOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */; };
+		A976E8F32C1C3E980009D1B0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F22C1C3E980009D1B0 /* Category.swift */; };
+		A976E8F52C1C3EC50009D1B0 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F42C1C3EC50009D1B0 /* CategoryManager.swift */; };
+		A976E8F72C1C3F1A0009D1B0 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F62C1C3F1A0009D1B0 /* GameManager.swift */; };
+		A976E8F92C1C3F410009D1B0 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F82C1C3F410009D1B0 /* Quiz.swift */; };
+		A976E8FB2C1C4AE60009D1B0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8FA2C1C4AE60009D1B0 /* Constants.swift */; };
+		A976E8FD2C1C4C270009D1B0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8FC2C1C4C270009D1B0 /* CategoryViewController.swift */; };
+		A976E8FF2C1C4C4A0009D1B0 /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8FE2C1C4C4A0009D1B0 /* TypeViewController.swift */; };
+		A976E9012C1C4C670009D1B0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E9002C1C4C670009D1B0 /* GameViewController.swift */; };
+		A976E9032C1C4C830009D1B0 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E9022C1C4C830009D1B0 /* GameOverViewController.swift */; };
+		A976E9062C1C7DF10009D1B0 /* MultipleButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E9052C1C7DF10009D1B0 /* MultipleButtonViewController.swift */; };
+		A976E9082C1C7E020009D1B0 /* BooleanButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E9072C1C7E020009D1B0 /* BooleanButtonViewController.swift */; };
 		A9ECE71E2C1B29A4000DB6E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9ECE71D2C1B29A4000DB6E9 /* GoogleService-Info.plist */; };
 		A9ECE7202C1B2DC8000DB6E9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECE71F2C1B2DC8000DB6E9 /* LoginViewController.swift */; };
 		A9ECE7222C1B2DD6000DB6E9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECE7212C1B2DD5000DB6E9 /* RegisterViewController.swift */; };
@@ -34,6 +46,18 @@
 		A90ABAC02C18B8D5000131DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A90ABAC22C18B8D5000131DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A957651B2C1C271000834BE7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionsModel.swift; sourceTree = "<group>"; };
+		A976E8F22C1C3E980009D1B0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A976E8F42C1C3EC50009D1B0 /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
+		A976E8F62C1C3F1A0009D1B0 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		A976E8F82C1C3F410009D1B0 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		A976E8FA2C1C4AE60009D1B0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A976E8FC2C1C4C270009D1B0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		A976E8FE2C1C4C4A0009D1B0 /* TypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
+		A976E9002C1C4C670009D1B0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A976E9022C1C4C830009D1B0 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		A976E9052C1C7DF10009D1B0 /* MultipleButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleButtonViewController.swift; sourceTree = "<group>"; };
+		A976E9072C1C7E020009D1B0 /* BooleanButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanButtonViewController.swift; sourceTree = "<group>"; };
 		A9ECE71D2C1B29A4000DB6E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9ECE71F2C1B2DC8000DB6E9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9ECE7212C1B2DD5000DB6E9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +115,7 @@
 				A9ECE71D2C1B29A4000DB6E9 /* GoogleService-Info.plist */,
 				A90ABABF2C18B8D5000131DC /* LaunchScreen.storyboard */,
 				A90ABAC22C18B8D5000131DC /* Info.plist */,
+				A976E8FA2C1C4AE60009D1B0 /* Constants.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -106,6 +131,11 @@
 		A90ABAC92C18B928000131DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */,
+				A976E8F22C1C3E980009D1B0 /* Category.swift */,
+				A976E8F42C1C3EC50009D1B0 /* CategoryManager.swift */,
+				A976E8F62C1C3F1A0009D1B0 /* GameManager.swift */,
+				A976E8F82C1C3F410009D1B0 /* Quiz.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,13 +143,27 @@
 		A90ABACA2C18B931000131DC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A976E9042C1C7DDD0009D1B0 /* Containers */,
 				A90ABAB82C18B8D3000131DC /* ViewController.swift */,
 				A9ECE71F2C1B2DC8000DB6E9 /* LoginViewController.swift */,
 				A9ECE7212C1B2DD5000DB6E9 /* RegisterViewController.swift */,
 				A9ECE7232C1B2E56000DB6E9 /* NumberOfQuestionsViewController.swift */,
+				A976E8FC2C1C4C270009D1B0 /* CategoryViewController.swift */,
+				A976E8FE2C1C4C4A0009D1B0 /* TypeViewController.swift */,
+				A976E9002C1C4C670009D1B0 /* GameViewController.swift */,
+				A976E9022C1C4C830009D1B0 /* GameOverViewController.swift */,
 				A957651B2C1C271000834BE7 /* UserProfileViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A976E9042C1C7DDD0009D1B0 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				A976E9052C1C7DF10009D1B0 /* MultipleButtonViewController.swift */,
+				A976E9072C1C7E020009D1B0 /* BooleanButtonViewController.swift */,
+			);
+			path = Containers;
 			sourceTree = "<group>";
 		};
 		EEC0A7B8C898DD05F877D03B /* Frameworks */ = {
@@ -248,11 +292,23 @@
 			files = (
 				A9ECE7202C1B2DC8000DB6E9 /* LoginViewController.swift in Sources */,
 				A9ECE7222C1B2DD6000DB6E9 /* RegisterViewController.swift in Sources */,
+				A976E8FD2C1C4C270009D1B0 /* CategoryViewController.swift in Sources */,
+				A976E8F92C1C3F410009D1B0 /* Quiz.swift in Sources */,
+				A976E9032C1C4C830009D1B0 /* GameOverViewController.swift in Sources */,
 				A957651C2C1C271000834BE7 /* UserProfileViewController.swift in Sources */,
+				A976E8F72C1C3F1A0009D1B0 /* GameManager.swift in Sources */,
+				A976E8FF2C1C4C4A0009D1B0 /* TypeViewController.swift in Sources */,
 				A9ECE7242C1B2E56000DB6E9 /* NumberOfQuestionsViewController.swift in Sources */,
 				A90ABAB92C18B8D3000131DC /* ViewController.swift in Sources */,
+				A976E9062C1C7DF10009D1B0 /* MultipleButtonViewController.swift in Sources */,
+				A976E9082C1C7E020009D1B0 /* BooleanButtonViewController.swift in Sources */,
+				A976E8FB2C1C4AE60009D1B0 /* Constants.swift in Sources */,
+				A976E8F52C1C3EC50009D1B0 /* CategoryManager.swift in Sources */,
+				A976E8F32C1C3E980009D1B0 /* Category.swift in Sources */,
+				A976E9012C1C4C670009D1B0 /* GameViewController.swift in Sources */,
 				A90ABAB52C18B8D3000131DC /* AppDelegate.swift in Sources */,
 				A90ABAB72C18B8D3000131DC /* SceneDelegate.swift in Sources */,
+				A976E8F12C1C3E630009D1B0 /* QuizOptionsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

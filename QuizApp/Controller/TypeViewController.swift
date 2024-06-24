@@ -10,6 +10,7 @@ import UIKit
 class TypeViewController: UIViewController {
     
     var settingsOptions: SettingsOptions?
+    var selectedCategoryName: String?
     
     @IBOutlet var allTypeButtons: [UIButton]!
     @IBOutlet var allDifficultyButtons: [UIButton]!
@@ -68,6 +69,8 @@ class TypeViewController: UIViewController {
         if segue.identifier == K.segue.toGameVC {
             let destinationVC = segue.destination as! GameViewController //Chose the right view controller. - Downcasting
             destinationVC.settingsOptions = settingsOptions
+       
+    
         }
     }
     

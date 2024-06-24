@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
     var settingsOptions: SettingsOptions?
     
     var gameManager = GameManager()
-    
+    var selectedCategoryName: String?
     var multipleDelegate: GameViewControllerDelegate?
     var booleanDelegate: GameViewControllerDelegate?
     
@@ -102,12 +102,12 @@ extension GameViewController: GameManagerDelegate {
         if uiData.type == "multiple" {
             multipleDelegate?.updateUI(answers: uiData.answers)
             showMultiple()
-//            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showMultiple), userInfo: nil, repeats: false)
+            //            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showMultiple), userInfo: nil, repeats: false)
             
         } else {
             booleanDelegate?.updateUI(answers: uiData.answers)
             showBoolean()
-//            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showBoolean), userInfo: nil, repeats: false)
+            //            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showBoolean), userInfo: nil, repeats: false)
         }
         
     }

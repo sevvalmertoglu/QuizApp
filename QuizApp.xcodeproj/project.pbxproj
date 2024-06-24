@@ -15,6 +15,9 @@
 		A90ABABE2C18B8D5000131DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A90ABABD2C18B8D5000131DC /* Assets.xcassets */; };
 		A90ABAC12C18B8D5000131DC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A90ABAC02C18B8D5000131DC /* Base */; };
 		A91814602C2980DC000726E0 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918145F2C2980DC000726E0 /* ScoresViewController.swift */; };
+		A91814642C29A153000726E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91814632C29A153000726E0 /* User.swift */; };
+		A91814672C29A8F0000726E0 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814652C29A8F0000726E0 /* correct.mp3 */; };
+		A91814682C29A8F0000726E0 /* false.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814662C29A8F0000726E0 /* false.mp3 */; };
 		A957651C2C1C271000834BE7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957651B2C1C271000834BE7 /* UserProfileViewController.swift */; };
 		A976E8F12C1C3E630009D1B0 /* QuizOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */; };
 		A976E8F32C1C3E980009D1B0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F22C1C3E980009D1B0 /* Category.swift */; };
@@ -47,6 +50,9 @@
 		A90ABAC02C18B8D5000131DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A90ABAC22C18B8D5000131DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A918145F2C2980DC000726E0 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
+		A91814632C29A153000726E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A91814652C29A8F0000726E0 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = correct.mp3; path = ../../correct.mp3; sourceTree = "<group>"; };
+		A91814662C29A8F0000726E0 /* false.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = false.mp3; path = ../../false.mp3; sourceTree = "<group>"; };
 		A957651B2C1C271000834BE7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionsModel.swift; sourceTree = "<group>"; };
 		A976E8F22C1C3E980009D1B0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 		A90ABAB32C18B8D3000131DC /* QuizApp */ = {
 			isa = PBXGroup;
 			children = (
+				A91814652C29A8F0000726E0 /* correct.mp3 */,
+				A91814662C29A8F0000726E0 /* false.mp3 */,
 				A90ABAC92C18B928000131DC /* Model */,
 				A90ABAC82C18B919000131DC /* View */,
 				A90ABACA2C18B931000131DC /* Controller */,
@@ -138,6 +146,7 @@
 				A976E8F42C1C3EC50009D1B0 /* CategoryManager.swift */,
 				A976E8F62C1C3F1A0009D1B0 /* GameManager.swift */,
 				A976E8F82C1C3F410009D1B0 /* Quiz.swift */,
+				A91814632C29A153000726E0 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,6 +246,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91814682C29A8F0000726E0 /* false.mp3 in Resources */,
+				A91814672C29A8F0000726E0 /* correct.mp3 in Resources */,
 				A90ABABE2C18B8D5000131DC /* Assets.xcassets in Resources */,
 				A9ECE71E2C1B29A4000DB6E9 /* GoogleService-Info.plist in Resources */,
 				A90ABAC12C18B8D5000131DC /* Base in Resources */,
@@ -302,6 +313,7 @@
 				A976E8F72C1C3F1A0009D1B0 /* GameManager.swift in Sources */,
 				A976E8FF2C1C4C4A0009D1B0 /* TypeViewController.swift in Sources */,
 				A9ECE7242C1B2E56000DB6E9 /* NumberOfQuestionsViewController.swift in Sources */,
+				A91814642C29A153000726E0 /* User.swift in Sources */,
 				A90ABAB92C18B8D3000131DC /* ViewController.swift in Sources */,
 				A976E9062C1C7DF10009D1B0 /* MultipleButtonViewController.swift in Sources */,
 				A91814602C2980DC000726E0 /* ScoresViewController.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol MultipleButtonViewControllerDelegate {
     func submittedAnswer(answer: String)
@@ -29,9 +30,31 @@ class MultipleButtonViewController: UIViewController {
                               Answers(text: "", correct: false)
     ]
     
+    var correctSound: AVAudioPlayer?
+    var wrongSound: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if let correctSoundPath = Bundle.main.path(forResource: "correct", ofType: "mp3") {
+                   let url = URL(fileURLWithPath: correctSoundPath)
+                   do {
+                       correctSound = try AVAudioPlayer(contentsOf: url)
+                   } catch {
+                       print("Error loading correct sound file: \(error.localizedDescription)")
+                   }
+               }
+               
+               if let wrongSoundPath = Bundle.main.path(forResource: "false", ofType: "mp3") {
+                   let url = URL(fileURLWithPath: wrongSoundPath)
+                   do {
+                       wrongSound = try AVAudioPlayer(contentsOf: url)
+                   } catch {
+                       print("Error loading wrong sound file: \(error.localizedDescription)")
+                   }
+               }
+           
+               correctSound?.prepareToPlay()
+               wrongSound?.prepareToPlay()
     }
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
@@ -52,11 +75,13 @@ class MultipleButtonViewController: UIViewController {
                               sender.backgroundColor = UIColor.green
                               sender.setTitleColor(UIColor.black, for: .normal)
                           }
+                          correctSound?.play()
                       } else {
                           DispatchQueue.main.async {
                               sender.backgroundColor = UIColor.red
                               sender.setTitleColor(UIColor.black, for: .normal)
                           }
+                          wrongSound?.play()
                       }
                   }
                   if answer.correct {

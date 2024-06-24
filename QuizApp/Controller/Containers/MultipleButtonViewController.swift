@@ -43,64 +43,55 @@ class MultipleButtonViewController: UIViewController {
             return
         }
         
-//        DispatchQueue.main.async {
-//            for button in self.allButtons {
-//                button.isEnabled = false
-//            }
-//        }
-
         // Check if the answer was correct and change UI accordingly
-        for answer in self.answers {
-            if sender.currentTitle == answer.text {
-                if answer.correct == true {
-//                    sender.backgroundColor = UIColor.green
-//                    sender.setTitleColor(UIColor.black, for: .normal)
-                    
-                    DispatchQueue.main.async {
-                        sender.backgroundColor = UIColor.green
-                        sender.setTitleColor(UIColor.black, for: .normal)
-                    }
-                } else {
-//                    sender.backgroundColor = UIColor.red
-//                    sender.setTitleColor(UIColor.black, for: .normal)
-                    
-                    DispatchQueue.main.async {
-                        sender.backgroundColor = UIColor.red
-                        sender.setTitleColor(UIColor.black, for: .normal)
-                    }
-                }
-            }
-        }
+              var correctAnswerButton: UIButton?
+              for (index, answer) in self.answers.enumerated() {
+                  if sender.currentTitle == answer.text {
+                      if answer.correct {
+                          DispatchQueue.main.async {
+                              sender.backgroundColor = UIColor.green
+                              sender.setTitleColor(UIColor.black, for: .normal)
+                          }
+                      } else {
+                          DispatchQueue.main.async {
+                              sender.backgroundColor = UIColor.red
+                              sender.setTitleColor(UIColor.black, for: .normal)
+                          }
+                      }
+                  }
+                  if answer.correct {
+                      correctAnswerButton = allButtons[index]
+                  }
+              }
+              
+              // If the selected answer is incorrect, highlight the correct answer button
+              if let correctButton = correctAnswerButton, sender != correctButton {
+                  DispatchQueue.main.async {
+                      correctButton.backgroundColor = UIColor.green
+                      correctButton.setTitleColor(UIColor.black, for: .normal)
+                  }
+              }
         
         // Set a timer to a function to send the answer and change UI back to normal
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendAnswer), userInfo: nil, repeats: false)
     }
     
     @objc func sendAnswer(){
-        delegate?.submittedAnswer(answer: selectedAnswer!.currentTitle!)
-        DispatchQueue.main.async {
-            self.buttons0.backgroundColor = UIColor.black
-            self.buttons0.setTitleColor(UIColor.white, for: .normal)
-            
-            self.buttons1.backgroundColor = UIColor.black
-            self.buttons1.setTitleColor(UIColor.white, for: .normal)
-            
-            self.buttons2.backgroundColor = UIColor.black
-            self.buttons2.setTitleColor(UIColor.white, for: .normal)
-            
-            self.buttons3.backgroundColor = UIColor.black
-            self.buttons3.setTitleColor(UIColor.white, for: .normal)
+            delegate?.submittedAnswer(answer: selectedAnswer!.currentTitle!)
+            DispatchQueue.main.async {
+                for button in self.allButtons {
+                    button.backgroundColor = UIColor.black
+                    button.setTitleColor(UIColor.white, for: .normal)
+                }
+                self.selectedAnswer = nil
+            }
         }
-    }
 }
 
 extension MultipleButtonViewController: GameViewControllerDelegate {
     func updateUI(answers: [Answers]) {
         self.answers = answers
         DispatchQueue.main.async {
-//            for button in self.allButtons {
-//                button.isEnabled = true
-//            }
             
             self.buttons0.setTitle(answers[0].text.htmlAttributedString!.string, for: .normal)
             self.buttons1.setTitle(answers[1].text.htmlAttributedString!.string, for: .normal)

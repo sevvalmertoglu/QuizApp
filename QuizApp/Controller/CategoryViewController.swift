@@ -83,6 +83,7 @@ extension CategoryViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 extension CategoryViewController: CategoriesManagerDelegate {
     func updateCategoryStatsLabels() {
         DispatchQueue.main.async {
+            self.totalLabel.text = "Total: \(self.categoriesManager!.categoryStats!.category_question_count.total_question_count)"
             self.easyLabel.text = "Easy: \(self.categoriesManager!.categoryStats!.category_question_count.total_easy_question_count)"
             self.mediumLabel.text = "Medium: \(self.categoriesManager!.categoryStats!.category_question_count.total_medium_question_count)"
             self.hardLabel.text = "Hard: \(self.categoriesManager!.categoryStats!.category_question_count.total_hard_question_count)"

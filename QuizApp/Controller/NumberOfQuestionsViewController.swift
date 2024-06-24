@@ -17,7 +17,7 @@ class NumberOfQuestionsViewController: UIViewController {
     
     let categoriesManager = CategoriesManager()
     var categories: CategoryData?
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,11 +31,14 @@ class NumberOfQuestionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        numberOfQuestionsStepper.minimumValue = 1
+        numberOfQuestionsStepper.maximumValue = 25
+        
         numberOfQuestionsStepper.value = 10
         settingsOptions.numberOfQuestions = 10
-
+        
         categoriesManager.getCategories()
-
+        
     }
     
     
@@ -44,7 +47,7 @@ class NumberOfQuestionsViewController: UIViewController {
         numberLabel.text = String(format: "%.0f", sender.value)
     }
     
-
+    
     @IBAction func nextButton(_ sender: Any) {
         categories = categoriesManager.categories
         self.performSegue(withIdentifier: K.segue.toCategoryVC, sender: self)
@@ -59,4 +62,6 @@ class NumberOfQuestionsViewController: UIViewController {
             destinationVC.categoriesManager = categoriesManager
         }
     }
+    
 }
+

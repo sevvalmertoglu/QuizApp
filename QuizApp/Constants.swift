@@ -16,6 +16,8 @@ struct K {
         static let toTypeVC = "toTypeVC"
         static let toGameVC = "toGameVC"
         static let toGameOverVC = "toGameOverVC"
+        static let toTryAgain = "toTryAgain"
+        static let toScores = "toScores"
         struct containers {
             static let showMultiple = "showMultiple"
             static let showBoolean = "showBoolean"

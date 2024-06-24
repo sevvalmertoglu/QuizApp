@@ -9,6 +9,7 @@ import UIKit
 
 class GameOverViewController: UIViewController {
     
+    
     @IBOutlet weak var scoreLabel: UILabel!
     
     var correctNumber: Int?
@@ -25,9 +26,12 @@ class GameOverViewController: UIViewController {
 
     }
     
-    @IBAction func homeButtonClicked(_ sender: Any) {
-        //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+    @IBAction func tryAgainClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: K.segue.toTryAgain , sender: self)
     }
     
+    @IBAction func scoresClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: K.segue.toScores , sender: self)
+    }
    
 }

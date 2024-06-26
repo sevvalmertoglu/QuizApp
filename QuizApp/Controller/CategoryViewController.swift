@@ -32,7 +32,6 @@ class CategoryViewController: UIViewController {
         print(settingsOptions!)
     
     }
-    
 
     @IBAction func categoryNextButton(_ sender: Any) {
         self.performSegue(withIdentifier: K.segue.toTypeVC, sender: self)

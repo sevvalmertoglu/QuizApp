@@ -20,6 +20,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var quizLabel: UILabel!
     @IBOutlet weak var quizProgressView: UIProgressView!
     
+    @IBOutlet weak var timeLabel: UILabel!
+    
     var settingsOptions: SettingsOptions?
     
     var gameManager = GameManager()
@@ -27,12 +29,14 @@ class GameViewController: UIViewController {
     var multipleDelegate: GameViewControllerDelegate?
     var booleanDelegate: GameViewControllerDelegate?
     
+    
     // Hide navigationbar on the welcome screen
     override func viewWillAppear(_ animated: Bool) {
         // Always call super when overiding method from the super class
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
         gameManager.delegate = self
+    
     }
     
     // Unhide the navigation bar to show it on other screens
@@ -48,23 +52,23 @@ class GameViewController: UIViewController {
             print(safeSettingsOptions)
             gameManager.fetchQuizData(settingsOptions: safeSettingsOptions)
         }
-        
+       
     }
     
     // Send data to view controllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.containers.showMultiple {
-            let destinationVC = segue.destination as! MultipleButtonViewController //Chose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! MultipleButtonViewController
             destinationVC.delegate = self
             multipleDelegate = destinationVC
             
         } else if segue.identifier == K.segue.containers.showBoolean {
-            let destinationVC = segue.destination as! BooleanButtonViewController //Chose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! BooleanButtonViewController
             destinationVC.delegate = self
             booleanDelegate = destinationVC
             
         } else if segue.identifier == K.segue.toGameOverVC {
-            let destinationVC = segue.destination as! GameOverViewController //Chose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! GameOverViewController
 
             print("Going to end screen now")
             destinationVC.total = settingsOptions!.numberOfQuestions
@@ -91,6 +95,12 @@ class GameViewController: UIViewController {
 
 //MARK: - GameManagerDelegate
 extension GameViewController: GameManagerDelegate {
+    func updateTimeLabel(timeLeft: TimeInterval) {
+        DispatchQueue.main.async {
+            self.timeLabel.text = "\(Int(timeLeft))"
+        }
+    }
+    
     func updateUI(uiData: UIData) {
         // Update main UI
         DispatchQueue.main.async{
@@ -102,12 +112,10 @@ extension GameViewController: GameManagerDelegate {
         if uiData.type == "multiple" {
             multipleDelegate?.updateUI(answers: uiData.answers)
             showMultiple()
-            //            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showMultiple), userInfo: nil, repeats: false)
             
         } else {
             booleanDelegate?.updateUI(answers: uiData.answers)
             showBoolean()
-            //            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showBoolean), userInfo: nil, repeats: false)
         }
         
     }
@@ -124,8 +132,6 @@ extension GameViewController: GameManagerDelegate {
 // Extension used by two protocols to return data from the button viewcontrollers to the main gameManger instance.
 extension GameViewController: MultipleButtonViewControllerDelegate, BooleanButtonViewControllerDelegate {
     func submittedAnswer(answer: String) {
-        
-        //multipleDelegate?.clearUI()
         gameManager.questionAnswer(answer: answer)
     }
 }

@@ -18,6 +18,7 @@
 		A91814642C29A153000726E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91814632C29A153000726E0 /* User.swift */; };
 		A91814672C29A8F0000726E0 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814652C29A8F0000726E0 /* correct.mp3 */; };
 		A91814682C29A8F0000726E0 /* false.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814662C29A8F0000726E0 /* false.mp3 */; };
+		A918146A2C2ADE98000726E0 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91814692C2ADE98000726E0 /* FirebaseManager.swift */; };
 		A957651C2C1C271000834BE7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957651B2C1C271000834BE7 /* UserProfileViewController.swift */; };
 		A976E8F12C1C3E630009D1B0 /* QuizOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */; };
 		A976E8F32C1C3E980009D1B0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F22C1C3E980009D1B0 /* Category.swift */; };
@@ -53,6 +54,7 @@
 		A91814632C29A153000726E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A91814652C29A8F0000726E0 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = correct.mp3; path = ../../correct.mp3; sourceTree = "<group>"; };
 		A91814662C29A8F0000726E0 /* false.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = false.mp3; path = ../../false.mp3; sourceTree = "<group>"; };
+		A91814692C2ADE98000726E0 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		A957651B2C1C271000834BE7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionsModel.swift; sourceTree = "<group>"; };
 		A976E8F22C1C3E980009D1B0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				A976E8F62C1C3F1A0009D1B0 /* GameManager.swift */,
 				A976E8F82C1C3F410009D1B0 /* Quiz.swift */,
 				A91814632C29A153000726E0 /* User.swift */,
+				A91814692C2ADE98000726E0 /* FirebaseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				A9ECE7222C1B2DD6000DB6E9 /* RegisterViewController.swift in Sources */,
 				A976E8FD2C1C4C270009D1B0 /* CategoryViewController.swift in Sources */,
 				A976E8F92C1C3F410009D1B0 /* Quiz.swift in Sources */,
+				A918146A2C2ADE98000726E0 /* FirebaseManager.swift in Sources */,
 				A976E9032C1C4C830009D1B0 /* GameOverViewController.swift in Sources */,
 				A957651C2C1C271000834BE7 /* UserProfileViewController.swift in Sources */,
 				A976E8F72C1C3F1A0009D1B0 /* GameManager.swift in Sources */,

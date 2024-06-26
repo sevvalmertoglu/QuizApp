@@ -7,16 +7,23 @@
 
 import Foundation
 
+/// Protocol to be implemented by delegates of CategoriesManager to update category statistics labels.
 protocol CategoriesManagerDelegate{
     func updateCategoryStatsLabels()
 }
 
+/// Manages fetching and storing trivia categories and their statistics.
 class CategoriesManager {
     var categories: CategoryData = CategoryData(trivia_categories: [QuizApp.Category(id: 0, name: "All Categories")])
     var categoryStats: CategoryStats?
     
     var delegate: CategoriesManagerDelegate?
     
+    /// Fetches trivia categories from the Open Trivia Database API.
+    ///
+    /// This function makes a network request to retrieve the available trivia categories.
+    /// Upon successful retrieval, it updates the `categories` property with the fetched data.
+    /// An "All Categories" option is prepended to the list of categories.
     func getCategories() {
         if let url = URL(string: "https://opentdb.com/api_category.php") {
             let session = URLSession(configuration: .default)
@@ -40,6 +47,12 @@ class CategoriesManager {
         }
     }
     
+    /// Fetches statistics for a specific trivia category from the Open Trivia Database API.
+    ///
+    /// This function makes a network request to retrieve the statistics for a given category ID.
+    /// Upon successful retrieval, it updates the `categoryStats` property with the fetched data and notifies the delegate to update the UI labels.
+    ///
+    /// - Parameter catId: The ID of the category for which to fetch statistics.
     func getCategoriesStats(catId: Int){
         if let url = URL(string: "https://opentdb.com/api_count.php?category=\(catId)") {
             let session = URLSession(configuration: .default)

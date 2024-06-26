@@ -8,6 +8,7 @@
 import Foundation
 
 protocol GameManagerDelegate {
+    func updateTimeLabel(timeLeft: TimeInterval)
     func updateUI(uiData: UIData)
     func showEndScreen()
 }
@@ -24,6 +25,27 @@ class GameManager {
     var currentQuestionNumber: Int = 0
     var currentUserScore: Int = 0
     
+    var timer: Timer?
+    var timeLeft: TimeInterval = 10
+    
+    func startTimer() {
+           timer?.invalidate()
+           timeLeft = 10
+           timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
+       }
+    
+    // Timer tick function
+      @objc func timerTick() {
+          timeLeft -= 1
+          delegate?.updateTimeLabel(timeLeft: timeLeft)
+          if timeLeft <= 0 {
+              timer?.invalidate()
+              timer = nil
+              // Time is up, handle it as wrong answer
+              nextQuestion()
+          }
+      }
+    
     // Fetch API data and start the game
     func fetchQuizData(settingsOptions: SettingsOptions){
         let quizURL = generateURL(settingsOptions: settingsOptions)
@@ -38,14 +60,19 @@ class GameManager {
                         do {
                             let results = try decoder.decode(QuizData.self, from: safeData)
                             self.quizData = results
-                            //print(results)
-                            self.nextQuestion()
+
+                            //To run on main thread
+                            DispatchQueue.main.async {
+                                self.nextQuestion()
+                            }
+                            
                         } catch {
                             print(error)
                         }
                     }
                 }
             }
+       
             task.resume()
         }
     }
@@ -82,6 +109,8 @@ class GameManager {
                         
                         answerArray.shuffle()
                         
+                        
+                        
                         let questionPercentage = Float(currentQuestionNumber+1) / Float(settingsOptions!.numberOfQuestions)
                         
                         print("Percentage: \(questionPercentage)")
@@ -91,11 +120,15 @@ class GameManager {
                                             percentage: questionPercentage,
                                             type: currentQuestion!.type)
                         
-                        
+                        // Start the timer for the new question
+                        startTimer()
                         delegate?.updateUI(uiData: uiData)
                         print("QUESTION: \(safeQuestion)")
+                       
+                       
                     }
                     currentQuestionNumber += 1
+                    
                 }
                 
             } else {
@@ -143,4 +176,6 @@ class GameManager {
         print("BASEURL: \(baseURL)")
         return baseURL
     }
+    
+   
 }

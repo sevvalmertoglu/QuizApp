@@ -20,11 +20,29 @@ class TypeViewController: UIViewController {
         if let safeSettingsOptions = settingsOptions {
             print(safeSettingsOptions)
         }
+        
+        for button in allTypeButtons {
+            button.layer.cornerRadius = 15
+            button.backgroundColor = UIColor.darkPurple
+            button.setTitleColor(UIColor.white, for: .normal)
+            
+        }
+        
+        for button in allDifficultyButtons {
+            button.layer.cornerRadius = 15
+            button.backgroundColor = UIColor.lightPurple
+            button.setTitleColor(UIColor.white, for: .normal)
+            
+        }
     }
     
     
     @IBAction func allTypeButtonsClicked(_ sender: UIButton) {
         var questionTypeSelected: String?
+        
+        sender.backgroundColor = UIColor.systemIndigo
+        sender.setTitleColor(UIColor.black, for: .normal)
+        sender.layer.cornerRadius = 15
         
         switch(sender.tag){
         case 1:
@@ -42,6 +60,11 @@ class TypeViewController: UIViewController {
     
     
     @IBAction func allDifficultyButtonsClicked(_ sender: UIButton) {
+        
+        sender.backgroundColor = UIColor.systemIndigo
+        sender.setTitleColor(UIColor.black, for: .normal)
+        sender.layer.cornerRadius = 15
+        
         
         switch(sender.tag){
         case 4:

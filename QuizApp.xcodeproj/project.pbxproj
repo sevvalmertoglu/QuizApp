@@ -19,6 +19,7 @@
 		A91814672C29A8F0000726E0 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814652C29A8F0000726E0 /* correct.mp3 */; };
 		A91814682C29A8F0000726E0 /* false.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814662C29A8F0000726E0 /* false.mp3 */; };
 		A918146A2C2ADE98000726E0 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91814692C2ADE98000726E0 /* FirebaseManager.swift */; };
+		A93AD5832C2DA28B00A46D21 /* leadershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93AD5822C2DA28B00A46D21 /* leadershipTableViewCell.swift */; };
 		A957651C2C1C271000834BE7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957651B2C1C271000834BE7 /* UserProfileViewController.swift */; };
 		A976E8F12C1C3E630009D1B0 /* QuizOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */; };
 		A976E8F32C1C3E980009D1B0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F22C1C3E980009D1B0 /* Category.swift */; };
@@ -55,6 +56,7 @@
 		A91814652C29A8F0000726E0 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = correct.mp3; path = ../../correct.mp3; sourceTree = "<group>"; };
 		A91814662C29A8F0000726E0 /* false.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = false.mp3; path = ../../false.mp3; sourceTree = "<group>"; };
 		A91814692C2ADE98000726E0 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		A93AD5822C2DA28B00A46D21 /* leadershipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leadershipTableViewCell.swift; sourceTree = "<group>"; };
 		A957651B2C1C271000834BE7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionsModel.swift; sourceTree = "<group>"; };
 		A976E8F22C1C3E980009D1B0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				A976E9022C1C4C830009D1B0 /* GameOverViewController.swift */,
 				A957651B2C1C271000834BE7 /* UserProfileViewController.swift */,
 				A918145F2C2980DC000726E0 /* ScoresViewController.swift */,
+				A93AD5822C2DA28B00A46D21 /* leadershipTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				A90ABAB92C18B8D3000131DC /* ViewController.swift in Sources */,
 				A976E9062C1C7DF10009D1B0 /* MultipleButtonViewController.swift in Sources */,
 				A91814602C2980DC000726E0 /* ScoresViewController.swift in Sources */,
+				A93AD5832C2DA28B00A46D21 /* leadershipTableViewCell.swift in Sources */,
 				A976E9082C1C7E020009D1B0 /* BooleanButtonViewController.swift in Sources */,
 				A976E8FB2C1C4AE60009D1B0 /* Constants.swift in Sources */,
 				A976E8F52C1C3EC50009D1B0 /* CategoryManager.swift in Sources */,

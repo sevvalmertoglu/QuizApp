@@ -1,8 +1,108 @@
 //
-//  FirebaseManager.swift
+//  GameManager.swift
 //  QuizApp
 //
-//  Created by Şevval Mertoğlu on 25.06.2024.
+//  Created by Şevval Mertoğlu on 26.06.2024.
 //
 
 import Foundation
+import FirebaseCore
+import FirebaseDatabase
+import FirebaseAuth
+import FirebaseStorage
+
+class FirebaseManager {
+
+    static let shared = FirebaseManager()
+    private let dbRef = Database.database().reference()
+
+    private init() { }
+
+    // MARK: - Authentication Methods
+
+    func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let user = authResult?.user {
+                self.fetchUserData(userId: user.uid, completion: completion)
+            }
+        }
+    }
+
+    func register(email: String, password: String, name: String, nickname: String, completion: @escaping (Result<User, Error>) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let user = authResult?.user {
+                let userData = ["name": name, "nickname": nickname, "email": email]
+                self.dbRef.child("users").child(user.uid).setValue(userData) { error, _ in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        let newUser = User(name: name, nickname: nickname, email: email, Scores: [])
+                        completion(.success(newUser))
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Database Methods
+
+    func saveScore(userId: String, score: Score, completion: @escaping (Result<Void, Error>) -> Void) {
+        let scoreDict = try! DictionaryEncoder().encode(score)
+        dbRef.child("users").child(userId).child("scores").childByAutoId().setValue(scoreDict) { error, _ in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+
+    private func fetchUserData(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
+        dbRef.child("users").child(userId).observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [String: Any],
+                  let name = value["name"] as? String,
+                  let nickname = value["nickname"] as? String,
+                  let email = value["email"] as? String else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User data is malformed."])))
+                return
+            }
+            var scores: [Score] = []
+            if let scoresData = value["scores"] as? [String: [String: Any]] {
+                scores = scoresData.compactMap { key, value in
+                    if let date = value["date"] as? String, let score = value["score"] as? Int {
+                        return Score(date: date, score: score)
+                    }
+                    return nil
+                }
+            }
+            let user = User(name: name, nickname: nickname, email: email, Scores: scores)
+            completion(.success(user))
+        }
+    }
+
+    // MARK: - Helper Methods
+    
+    func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: Date())
+    }
+}
+
+struct DictionaryEncoder {
+    private let jsonEncoder = JSONEncoder()
+
+    func encode<T>(_ value: T) throws -> [String: Any] where T : Encodable {
+        let data = try jsonEncoder.encode(value)
+        let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+        guard let dictionary = jsonObject as? [String: Any] else {
+            throw EncodingError.invalidValue(value, EncodingError.Context(codingPath: [], debugDescription: ""))
+        }
+        return dictionary
+    }
+}
+

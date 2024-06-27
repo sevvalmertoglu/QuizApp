@@ -6,10 +6,6 @@
 //
 
 import UIKit
-import FirebaseCore
-import FirebaseDatabase
-import FirebaseAuth
-import FirebaseStorage
 
 class LoginViewController: UIViewController {
     
@@ -24,17 +20,20 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func loginButton(_ sender: Any) {
-        if mailTextField.text != "" && passwordTextField.text != "" {
-                  Auth.auth().signIn(withEmail: mailTextField.text!, password: passwordTextField.text!) { authdata, error in
-                      if error != nil {
-                          self.makeAlert(titleInput: "ERROR", messageInput:error?.localizedDescription ?? "Error")
-                      } else {
-                          self.performSegue(withIdentifier: "toNumberOfQuestionsVC", sender: nil)
-                      }
-                  }
-              } else {
-                  makeAlert(titleInput: "ERROR", messageInput: "Please enter your email and password")
-              }
+        guard let email = mailTextField.text, let password = passwordTextField.text, !email.isEmpty, !password.isEmpty else {
+                   makeAlert(titleInput: "ERROR", messageInput: "Please enter your email and password")
+                   return
+               }
+
+               FirebaseManager.shared.signIn(email: email, password: password) { result in
+                   switch result {
+                   case .success(let user):
+                       print("User logged in: \(user)")
+                       self.performSegue(withIdentifier: "toNumberOfQuestionsVC", sender: nil)
+                   case .failure(let error):
+                       self.makeAlert(titleInput: "ERROR", messageInput: error.localizedDescription)
+                   }
+               }
         
     }
     

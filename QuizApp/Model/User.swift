@@ -12,6 +12,8 @@ struct User {
     var nickname: String
     var email: String
     var Scores: [Score]
+//    var TotalScores: [TotalScores]
+
 }
 
 struct Score: Codable {
@@ -20,3 +22,7 @@ struct Score: Codable {
 //    let topic: String
     let score: Int
 }
+
+//struct TotalScores: Codable {
+//    let totalScore: Int
+//}

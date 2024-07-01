@@ -109,6 +109,23 @@ class FirebaseManager {
             completion(.success(user))
         }
     }
+    
+    func fetchLeaderboard(completion: @escaping (Result<[(nickname: String, totalScore: Int)], Error>) -> Void) {
+        dbRef.child("leaderboard").queryOrdered(byChild: "totalScore").observeSingleEvent(of: .value) { snapshot in
+            var leaderboard: [(nickname: String, totalScore: Int)] = []
+            for child in snapshot.children.reversed() {
+                if let snapshot = child as? DataSnapshot,
+                   let value = snapshot.value as? [String: Any],
+                   let nickname = value["nickname"] as? String,
+                   let totalScore = value["totalScore"] as? Int {
+                    leaderboard.append((nickname: nickname, totalScore: totalScore))
+                }
+            }
+            completion(.success(leaderboard))
+        } withCancel: { error in
+            completion(.failure(error))
+        }
+    }
 
     // MARK: - Helper Methods
     

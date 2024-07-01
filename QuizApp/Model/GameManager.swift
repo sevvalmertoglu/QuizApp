@@ -28,13 +28,15 @@ class GameManager {
     var timer: Timer?
     var timeLeft: TimeInterval = 10
     
+    /// Starts the timer for the quiz with a 10 second countdown.
     func startTimer() {
            timer?.invalidate()
            timeLeft = 10
            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
        }
     
-    // Timer tick function
+    /// Updates the remaining time for the current question.
+    /// If time is up and it's not the last question, it moves to the next question.
     @objc func timerTick() {
         timeLeft -= 1
         delegate?.updateTimeLabel(timeLeft: timeLeft)
@@ -48,7 +50,8 @@ class GameManager {
         }
     }
     
-    // Fetch API data and start the game
+    /// Fetches quiz data from the API based on the provided settings options and starts the game.
+    /// - Parameter settingsOptions: The settings options chosen by the user.
     func fetchQuizData(settingsOptions: SettingsOptions){
         let quizURL = generateURL(settingsOptions: settingsOptions)
         self.settingsOptions = settingsOptions
@@ -79,7 +82,7 @@ class GameManager {
         }
     }
     
-    // Show the next question and send data to the view controller
+    /// Displays the next question and sends the data to the view controller.
     func nextQuestion(){
         // Check the current number is under the max
         if let safeNumberOfQuestions = settingsOptions?.numberOfQuestions {
@@ -140,6 +143,8 @@ class GameManager {
         
     }
     
+    /// Processes the user's answer and updates the score. Moves to the next question if applicable.
+    /// - Parameter answer: The user's selected answer.
     func questionAnswer(answer: String) {
         if let safeIncorrectAnswers = currentQuestion?.incorrect_answers {
             if let safeCorrectAnswer = currentQuestion?.correct_answer {
@@ -156,6 +161,9 @@ class GameManager {
         }
     }
     
+    /// Generates the URL for the quiz API request based on the provided settings options.
+    /// - Parameter settingsOptions: The settings options chosen by the user.
+    /// - Returns: The generated URL string.
     func generateURL(settingsOptions: SettingsOptions) -> String {
         var baseURL = "https://opentdb.com/api.php?"
         

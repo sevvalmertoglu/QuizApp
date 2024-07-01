@@ -26,7 +26,6 @@ class GameOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Change some data to show the users score and game settings
-        print("did load")
         if let safeCorrectNumber = correctNumber {
             if let safeTotal = total {
                 scoreLabel.text = "\(safeCorrectNumber)/\(safeTotal)"

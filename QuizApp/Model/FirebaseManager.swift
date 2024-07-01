@@ -56,9 +56,35 @@ class FirebaseManager {
             if let error = error {
                 completion(.failure(error))
             } else {
+//                completion(.success(()))
+                self.updateTotalScore(userId: userId, score: score.score, completion: completion)
+            }
+        }
+    }
+    
+    private func updateTotalScore(userId: String, score: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+        let userRef = dbRef.child("users").child(userId)
+        userRef.runTransactionBlock({ currentData in
+            if var user = currentData.value as? [String : Any] {
+                var totalScore = user["totalScore"] as? Int ?? 0
+                totalScore += score
+                user["totalScore"] = totalScore
+                currentData.value = user
+                self.updateLeaderboard(userId: userId, nickname: user["nickname"] as? String ?? "", totalScore: totalScore)
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }) { error, committed, _ in
+            if let error = error {
+                completion(.failure(error))
+            } else if committed {
                 completion(.success(()))
             }
         }
+    }
+    
+    private func updateLeaderboard(userId: String, nickname: String, totalScore: Int) {
+        dbRef.child("leaderboard").child(userId).setValue(["nickname": nickname, "totalScore": totalScore])
     }
 
     private func fetchUserData(userId: String, completion: @escaping (Result<User, Error>) -> Void) {

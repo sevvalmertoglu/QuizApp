@@ -86,8 +86,8 @@ class FirebaseManager {
     private func updateLeaderboard(userId: String, nickname: String, totalScore: Int) {
         dbRef.child("leaderboard").child(userId).setValue(["nickname": nickname, "totalScore": totalScore])
     }
-
-    private func fetchUserData(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
+    
+    func fetchUserData(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
         dbRef.child("users").child(userId).observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: Any],
                   let name = value["name"] as? String,

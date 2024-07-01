@@ -398,6 +398,7 @@
             <objects>
                 <navigationController id="Jj7-mG-KmN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Game" image="gamecontroller.fill" catalog="system" id="GxE-pL-b88"/>
+                    <navigationItem key="navigationItem" id="dnE-sA-fr1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lJR-kR-d7X">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1325,12 +1326,12 @@
                         <outlet property="quizLabel" destination="Z25-28-t0b" id="MOE-Lc-rHF"/>
                         <outlet property="quizProgressView" destination="rDW-6N-t1l" id="xQ4-rU-ywi"/>
                         <outlet property="timeLabel" destination="tWi-ci-jsL" id="VUx-ac-i7N"/>
-                        <segue destination="kOe-Yf-8Uk" kind="presentation" identifier="toGameOverVC" modalPresentationStyle="fullScreen" id="122-eI-ncB"/>
+                        <segue destination="kOe-Yf-8Uk" kind="presentation" identifier="toGameOverVC" modalPresentationStyle="fullScreen" id="ZZA-9N-WXo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maF-zj-Ezo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6980.9160305343512" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="7051" y="-2"/>
         </scene>
         <!--Boolean Button View Controller-->
         <scene sceneID="thw-6U-Iih">
@@ -1489,8 +1490,8 @@
                     </view>
                     <connections>
                         <outlet property="scoreLabel" destination="gnd-Wp-hxu" id="fEo-sd-vyR"/>
-                        <segue destination="s3G-cI-h3M" kind="show" identifier="toScores" id="wzE-EK-quz"/>
-                        <segue destination="Zvc-xJ-Y5e" kind="presentation" identifier="toTryAgain" modalPresentationStyle="fullScreen" id="Ksv-nE-V90"/>
+                        <segue destination="s3G-cI-h3M" kind="presentation" identifier="toScores" modalPresentationStyle="fullScreen" id="sRQ-hj-Odr"/>
+                        <segue destination="Zvc-xJ-Y5e" kind="presentation" identifier="toTryAgain" modalPresentationStyle="fullScreen" id="1ma-ZK-RCt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gA3-Oc-i23" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1621,8 +1622,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ksv-nE-V90"/>
-        <segue reference="vaf-4h-KZe"/>
+        <segue reference="1ma-ZK-RCt"/>
+        <segue reference="sRQ-hj-Odr"/>
         <segue reference="vGF-28-qTU"/>
     </inferredMetricsTieBreakers>
     <resources>

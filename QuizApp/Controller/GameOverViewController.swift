@@ -18,9 +18,7 @@ class GameOverViewController: UIViewController {
     
     var correctNumber: Int?
     var total: Int?
-    var settingsOptions = SettingsOptions()
     var user: User?
-//    var settingsOptions: SettingsOptions?
     var nickname: String?
     var totalScoreFromScores: Int = 0
  

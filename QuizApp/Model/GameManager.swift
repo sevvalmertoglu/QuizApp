@@ -8,9 +8,9 @@
 import Foundation
 
 protocol GameManagerDelegate {
-    func updateTimeLabel(timeLeft: TimeInterval)
     func updateUI(uiData: UIData)
     func showEndScreen()
+    func updateTimeLabel(timeLeft: TimeInterval)
 }
 
 class GameManager {
@@ -35,16 +35,18 @@ class GameManager {
        }
     
     // Timer tick function
-      @objc func timerTick() {
-          timeLeft -= 1
-          delegate?.updateTimeLabel(timeLeft: timeLeft)
-          if timeLeft <= 0 {
-              timer?.invalidate()
-              timer = nil
-              // Time is up, handle it as wrong answer
-              nextQuestion()
-          }
-      }
+    @objc func timerTick() {
+        timeLeft -= 1
+        delegate?.updateTimeLabel(timeLeft: timeLeft)
+        if timeLeft <= 0 {
+            timer?.invalidate()
+            timer = nil
+            // Time is up
+            if currentQuestionNumber < (settingsOptions?.numberOfQuestions ?? 1) - 1 {
+                nextQuestion()
+            }
+        }
+    }
     
     // Fetch API data and start the game
     func fetchQuizData(settingsOptions: SettingsOptions){
@@ -108,8 +110,6 @@ class GameManager {
                         }
                         
                         answerArray.shuffle()
-                        
-                        
                         
                         let questionPercentage = Float(currentQuestionNumber+1) / Float(settingsOptions!.numberOfQuestions)
                         

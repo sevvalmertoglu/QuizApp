@@ -23,16 +23,10 @@ class TypeViewController: UIViewController {
         
         for button in allTypeButtons {
             button.layer.cornerRadius = 15
-            button.backgroundColor = UIColor.darkPurple
-            button.setTitleColor(UIColor.white, for: .normal)
-            
         }
         
         for button in allDifficultyButtons {
             button.layer.cornerRadius = 15
-            button.backgroundColor = UIColor.lightPurple
-            button.setTitleColor(UIColor.white, for: .normal)
-            
         }
     }
     
@@ -40,11 +34,12 @@ class TypeViewController: UIViewController {
     @IBAction func allTypeButtonsClicked(_ sender: UIButton) {
         var questionTypeSelected: String?
         
-        sender.backgroundColor = UIColor.systemIndigo
-        sender.setTitleColor(UIColor.black, for: .normal)
+        updateButtonSelections(selectedButton: sender)
+        sender.setTitleColor(UIColor.white, for: .normal)
         sender.layer.cornerRadius = 15
         
         switch(sender.tag){
+            
         case 1:
             questionTypeSelected = nil
         case 2:
@@ -58,11 +53,25 @@ class TypeViewController: UIViewController {
         settingsOptions?.type = questionTypeSelected
     }
     
+    func updateButtonSelections(selectedButton: UIButton) {
+        // Tüm butonlar için varsayılan renk
+        let defaultColor = UIColor.darkPurple
+        // Seçili buton için renk
+        let selectedColor = UIColor.lightPurple
+
+        // Tüm butonları varsayılan renge çevir
+        allTypeButtons.forEach { button in
+            button.backgroundColor = defaultColor
+        }
+
+        // Seçili butonun rengini değiştir
+        selectedButton.backgroundColor = selectedColor
+    }
     
     @IBAction func allDifficultyButtonsClicked(_ sender: UIButton) {
         
-        sender.backgroundColor = UIColor.systemIndigo
-        sender.setTitleColor(UIColor.black, for: .normal)
+        updateDifficultyButtonSelections(selectedButton: sender)
+        sender.setTitleColor(UIColor.white, for: .normal)
         sender.layer.cornerRadius = 15
         
         
@@ -79,6 +88,21 @@ class TypeViewController: UIViewController {
         default:
             settingsOptions?.difficulty = nil
         }
+    }
+    
+    func updateDifficultyButtonSelections(selectedButton: UIButton) {
+        // Tüm butonlar için varsayılan renk
+        let defaultColor = UIColor.darkPurple
+        // Seçili buton için renk
+        let selectedColor = UIColor.lightPurple
+
+        // Tüm butonları varsayılan renge çevir
+        allDifficultyButtons.forEach { button in
+            button.backgroundColor = defaultColor
+        }
+
+        // Seçili butonun rengini değiştir
+        selectedButton.backgroundColor = selectedColor
     }
     
     

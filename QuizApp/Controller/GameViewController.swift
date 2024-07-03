@@ -95,6 +95,15 @@ class GameViewController: UIViewController {
 
 //MARK: - GameManagerDelegate
 extension GameViewController: GameManagerDelegate {
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Warning!", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Return to selection screen", style: .default) { _ in
+            self.performSegue(withIdentifier: K.segue.toTryGame, sender: self)
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func updateTimeLabel(timeLeft: TimeInterval) {
         DispatchQueue.main.async {
             self.timeLabel.text = "\(Int(timeLeft))"

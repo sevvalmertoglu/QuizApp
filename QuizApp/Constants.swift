@@ -18,6 +18,8 @@ struct K {
         static let toGameOverVC = "toGameOverVC"
         static let toTryAgain = "toTryAgain"
         static let toScores = "toScores"
+        static let toUserIconVC = "toUserIconVC"
+        static let toTryGame = "toTryGame"
         struct containers {
             static let showMultiple = "showMultiple"
             static let showBoolean = "showBoolean"

@@ -17,6 +17,7 @@ extension String {
 
 struct QuizData: Decodable {
     var results: [QuestionData]
+    var response_code: Int
 }
 
 struct QuestionData: Decodable {

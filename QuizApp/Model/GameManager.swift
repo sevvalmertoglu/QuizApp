@@ -11,6 +11,7 @@ protocol GameManagerDelegate {
     func updateUI(uiData: UIData)
     func showEndScreen()
     func updateTimeLabel(timeLeft: TimeInterval)
+    func showAlert(message: String)
 }
 
 class GameManager {
@@ -63,13 +64,27 @@ class GameManager {
                     let decoder = JSONDecoder()
                     if let safeData = data {
                         do {
+//                            let results = try decoder.decode(QuizData.self, from: safeData)
+//                            self.quizData = results
+//
+//                            //To run on main thread
+//                            DispatchQueue.main.async {
+//                                self.nextQuestion()
+//                            }
                             let results = try decoder.decode(QuizData.self, from: safeData)
-                            self.quizData = results
-
-                            //To run on main thread
-                            DispatchQueue.main.async {
-                                self.nextQuestion()
+                            if results.response_code == 0 {
+                                self.quizData = results
+                                
+                                DispatchQueue.main.async {
+                                    self.nextQuestion()
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    self.delegate?.showAlert(message: "There are not that many questions, please make your selections again.")
+                                    
+                                }
                             }
+                            
                             
                         } catch {
                             print(error)

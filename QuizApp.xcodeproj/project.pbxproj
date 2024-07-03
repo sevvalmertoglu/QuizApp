@@ -20,6 +20,8 @@
 		A91814682C29A8F0000726E0 /* false.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814662C29A8F0000726E0 /* false.mp3 */; };
 		A918146A2C2ADE98000726E0 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91814692C2ADE98000726E0 /* FirebaseManager.swift */; };
 		A9332DDB2C32F408001C3F86 /* UserScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332DDA2C32F408001C3F86 /* UserScoresTableViewCell.swift */; };
+		A9332DDE2C342EAB001C3F86 /* UserIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332DDD2C342EAB001C3F86 /* UserIconViewController.swift */; };
+		A9332DE02C342FF0001C3F86 /* UserIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332DDF2C342FF0001C3F86 /* UserIconCollectionViewCell.swift */; };
 		A93AD5832C2DA28B00A46D21 /* leadershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93AD5822C2DA28B00A46D21 /* leadershipTableViewCell.swift */; };
 		A957651C2C1C271000834BE7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957651B2C1C271000834BE7 /* UserProfileViewController.swift */; };
 		A976E8F12C1C3E630009D1B0 /* QuizOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */; };
@@ -58,6 +60,8 @@
 		A91814662C29A8F0000726E0 /* false.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = false.mp3; path = ../../false.mp3; sourceTree = "<group>"; };
 		A91814692C2ADE98000726E0 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		A9332DDA2C32F408001C3F86 /* UserScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScoresTableViewCell.swift; sourceTree = "<group>"; };
+		A9332DDD2C342EAB001C3F86 /* UserIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIconViewController.swift; sourceTree = "<group>"; };
+		A9332DDF2C342FF0001C3F86 /* UserIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIconCollectionViewCell.swift; sourceTree = "<group>"; };
 		A93AD5822C2DA28B00A46D21 /* leadershipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leadershipTableViewCell.swift; sourceTree = "<group>"; };
 		A957651B2C1C271000834BE7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		A976E8F02C1C3E630009D1B0 /* QuizOptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionsModel.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 		A90ABACA2C18B931000131DC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A9332DDC2C33EF97001C3F86 /* Cells */,
 				A976E9042C1C7DDD0009D1B0 /* Containers */,
 				A90ABAB82C18B8D3000131DC /* ViewController.swift */,
 				A9ECE71F2C1B2DC8000DB6E9 /* LoginViewController.swift */,
@@ -171,11 +176,20 @@
 				A976E9002C1C4C670009D1B0 /* GameViewController.swift */,
 				A976E9022C1C4C830009D1B0 /* GameOverViewController.swift */,
 				A957651B2C1C271000834BE7 /* UserProfileViewController.swift */,
-				A9332DDA2C32F408001C3F86 /* UserScoresTableViewCell.swift */,
 				A918145F2C2980DC000726E0 /* ScoresViewController.swift */,
-				A93AD5822C2DA28B00A46D21 /* leadershipTableViewCell.swift */,
+				A9332DDD2C342EAB001C3F86 /* UserIconViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A9332DDC2C33EF97001C3F86 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A9332DDF2C342FF0001C3F86 /* UserIconCollectionViewCell.swift */,
+				A93AD5822C2DA28B00A46D21 /* leadershipTableViewCell.swift */,
+				A9332DDA2C32F408001C3F86 /* UserScoresTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		A976E9042C1C7DDD0009D1B0 /* Containers */ = {
@@ -321,7 +335,9 @@
 				A976E9032C1C4C830009D1B0 /* GameOverViewController.swift in Sources */,
 				A957651C2C1C271000834BE7 /* UserProfileViewController.swift in Sources */,
 				A976E8F72C1C3F1A0009D1B0 /* GameManager.swift in Sources */,
+				A9332DDE2C342EAB001C3F86 /* UserIconViewController.swift in Sources */,
 				A976E8FF2C1C4C4A0009D1B0 /* TypeViewController.swift in Sources */,
+				A9332DE02C342FF0001C3F86 /* UserIconCollectionViewCell.swift in Sources */,
 				A9332DDB2C32F408001C3F86 /* UserScoresTableViewCell.swift in Sources */,
 				A9ECE7242C1B2E56000DB6E9 /* NumberOfQuestionsViewController.swift in Sources */,
 				A91814642C29A153000726E0 /* User.swift in Sources */,

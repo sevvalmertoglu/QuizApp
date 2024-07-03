@@ -18,6 +18,8 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundImage(imageName: "background3")
+
         userScoresTableView.delegate = self
         userScoresTableView.dataSource = self
         
@@ -52,6 +54,11 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    @IBAction func userIconButton(_ sender: Any) {
+        self.performSegue(withIdentifier: K.segue.toUserIconVC , sender: self)
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return user?.Scores.count ?? 0
     }
@@ -66,4 +73,14 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
+}
+extension UIViewController {
+    func setBackgroundImage(imageName: String) {
+        let backgroundImage = UIImage(named: imageName)
+        let backgroundImageView = UIImageView(frame: self.view.frame)
+        backgroundImageView.frame = self.view.bounds
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.image = backgroundImage
+        self.view.insertSubview(backgroundImageView, at: 0)
+    }
 }

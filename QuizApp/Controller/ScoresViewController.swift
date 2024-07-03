@@ -20,6 +20,8 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundImage(imageName: "background4")
+        
         leadershipTableView.delegate = self
         leadershipTableView.dataSource = self
         

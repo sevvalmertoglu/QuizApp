@@ -91,17 +91,12 @@ class TypeViewController: UIViewController {
     }
     
     func updateDifficultyButtonSelections(selectedButton: UIButton) {
-        // Tüm butonlar için varsayılan renk
         let defaultColor = UIColor.darkPurple
-        // Seçili buton için renk
         let selectedColor = UIColor.lightPurple
 
-        // Tüm butonları varsayılan renge çevir
         allDifficultyButtons.forEach { button in
             button.backgroundColor = defaultColor
         }
-
-        // Seçili butonun rengini değiştir
         selectedButton.backgroundColor = selectedColor
     }
     

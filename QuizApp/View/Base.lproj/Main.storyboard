@@ -483,7 +483,9 @@
                     <tabBarItem key="tabBarItem" title="User Profile" image="person.circle.fill" catalog="system" id="lS4-3k-jiK"/>
                     <navigationItem key="navigationItem" id="AxF-ci-yhV"/>
                     <connections>
+                        <outlet property="backgroundView" destination="26U-DQ-FZI" id="icg-Jd-ol8"/>
                         <outlet property="nameLabel" destination="IBs-to-7uc" id="41A-JN-Upb"/>
+                        <outlet property="userProfileImageView" destination="6kK-EM-8KR" id="GRQ-nS-Y6W"/>
                         <outlet property="userScoresTableView" destination="TJc-Qb-6jn" id="bxE-DN-25m"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toViewController" modalPresentationStyle="fullScreen" id="vGF-28-qTU"/>
                         <segue destination="i9w-Vs-OKQ" kind="show" identifier="toUserIconVC" id="4Vm-pq-SWb"/>
@@ -565,6 +567,9 @@
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="baseBackgroundColor" name="lightPurple"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="saveButton:" destination="i9w-Vs-OKQ" eventType="touchUpInside" id="Vp5-9A-LU1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1076,6 +1081,7 @@
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f2-wf-qiO">
                                                 <rect key="frame" x="31" y="141.33333333333334" width="320" height="266.66666666666663"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </pickerView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Sp-8c-RcW">
                                                 <rect key="frame" x="117.66666666666669" y="418" width="147" height="140"/>

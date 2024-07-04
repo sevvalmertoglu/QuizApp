@@ -126,6 +126,26 @@ class FirebaseManager {
             completion(.failure(error))
         }
     }
+    
+    func saveUserIcon(userId: String, iconName: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        dbRef.child("users").child(userId).child("profileIcon").setValue(iconName) { error, _ in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
+    func fetchUserIcon(userId: String, completion: @escaping (Result<String, Error>) -> Void) {
+        dbRef.child("users").child(userId).child("profileIcon").observe(.value) { snapshot in
+            if let iconName = snapshot.value as? String {
+                completion(.success(iconName))
+            } else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Icon not found."])))
+            }
+        }
+    }
 
     // MARK: - Helper Methods
     

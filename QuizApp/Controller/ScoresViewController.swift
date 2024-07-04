@@ -77,6 +77,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         leadershipTableView.reloadData()
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return topFourToTen.count
     }

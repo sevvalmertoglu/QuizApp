@@ -10,7 +10,8 @@ import FirebaseAuth
 
 class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
-    
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userScoresTableView: UITableView!
     
@@ -22,9 +23,12 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 
         userScoresTableView.delegate = self
         userScoresTableView.dataSource = self
-        
+    
+        backgroundView.applyCornerRadiusWithShadow()
         fetchCurrentUser()
     }
+    
+ 
     
     func fetchCurrentUser() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
@@ -33,6 +37,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             case .success(let user):
                 self?.user = user
                 self?.updateUI()
+                self?.fetchProfileIcon(userId: userId)
             case .failure(let error):
                 print("Error fetching user data: \(error.localizedDescription)")
             }
@@ -43,6 +48,17 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         guard let user = user else { return }
         nameLabel.text = user.name
         userScoresTableView.reloadData()
+    }
+    
+    func fetchProfileIcon(userId: String) {
+        FirebaseManager.shared.fetchUserIcon(userId: userId) { [weak self] result in
+            switch result {
+            case .success(let iconName):
+                self?.userProfileImageView.image = UIImage(named: iconName)
+            case .failure(let error):
+                print("Error fetching profile icon: \(error.localizedDescription)")
+            }
+        }
     }
 
     @IBAction func exitButton(_ sender: Any) {

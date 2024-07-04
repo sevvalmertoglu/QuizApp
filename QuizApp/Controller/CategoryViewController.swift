@@ -16,6 +16,8 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var easyLabel: UILabel!
     @IBOutlet weak var mediumLabel: UILabel!
     @IBOutlet weak var hardLabel: UILabel!
+    @IBOutlet weak var categoryView: UIView!
+    
     
     var settingsOptions: SettingsOptions?
     var categories: CategoryData?
@@ -29,6 +31,8 @@ class CategoryViewController: UIViewController {
         categoriesManager?.delegate = self
         
         categoryNameLabel.text = categories?.trivia_categories[settingsOptions!.category].name
+        categoryView.applyCornerRadiusWithShadow()
+        
         print(settingsOptions!)
     
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,9 +24,13 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var secondPointView: UIView!
     @IBOutlet weak var thirdPointView: UIView!
     
-    var leaderboard: [(nickname: String, totalScore: Int)] = []
-    var topThree: [(nickname: String, totalScore: Int)] = []
-    var topFourToTen: [(nickname: String, totalScore: Int)] = []
+    @IBOutlet weak var firstImageView: UIImageView!
+    @IBOutlet weak var secondImageView: UIImageView!
+    @IBOutlet weak var thirdImageView: UIImageView!
+    
+    var leaderboard: [(nickname: String, totalScore: Int, userId: String)] = []
+    var topThree: [(nickname: String, totalScore: Int, userId: String)] = []
+    var topFourToTen: [(nickname: String, totalScore: Int, userId: String)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +44,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         leadershipTableView.dataSource = self
         
         fetchLeaderboard()
+      
     }
     
     func fetchLeaderboard() {
@@ -53,29 +59,47 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+
+
     func updateUI() {
-        if leaderboard.count > 0 {
-            topThree = Array(leaderboard.prefix(3))
-            topFourToTen = Array(leaderboard.dropFirst(3).prefix(7))
-        }
-        
-        if topThree.count > 0 {
-            firstLabel.text = "\(topThree[0].nickname)"
-            firstPointLabel.text = "\(topThree[0].totalScore)"
-        }
-        
-        if topThree.count > 1 {
-            secondLabel.text = "\(topThree[1].nickname)"
-            secondPointLabel.text = "\(topThree[1].totalScore)"
-        }
-        
-        if topThree.count > 2 {
-            thirdLabel.text = "\(topThree[2].nickname)"
-            thirdPointLabel.text = "\(topThree[2].totalScore)"
-        }
-        
-        leadershipTableView.reloadData()
-    }
+           if leaderboard.count > 0 {
+               topThree = Array(leaderboard.prefix(3))
+               topFourToTen = Array(leaderboard.dropFirst(3).prefix(7))
+           }
+           
+           if topThree.count > 0 {
+               firstLabel.text = topThree[0].nickname
+               firstPointLabel.text = "\(topThree[0].totalScore)"
+               fetchProfileIcon(userId: topThree[0].userId, imageView: firstImageView)
+           }
+           
+           if topThree.count > 1 {
+               secondLabel.text = topThree[1].nickname
+               secondPointLabel.text = "\(topThree[1].totalScore)"
+               fetchProfileIcon(userId: topThree[1].userId, imageView: secondImageView)
+           }
+           
+           if topThree.count > 2 {
+               thirdLabel.text = topThree[2].nickname
+               thirdPointLabel.text = "\(topThree[2].totalScore)"
+               fetchProfileIcon(userId: topThree[2].userId, imageView: thirdImageView)
+           }
+           
+           leadershipTableView.reloadData()
+       }
+       
+       func fetchProfileIcon(userId: String, imageView: UIImageView) {
+           FirebaseManager.shared.fetchUserIcon(userId: userId) { result in
+               switch result {
+               case .success(let iconName):
+                   DispatchQueue.main.async {
+                       imageView.image = UIImage(named: iconName)
+                   }
+               case .failure(let error):
+                   print("Error fetching profile icon: \(error.localizedDescription)")
+               }
+           }
+       }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

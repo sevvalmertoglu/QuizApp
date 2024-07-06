@@ -20,6 +20,7 @@ struct K {
         static let toScores = "toScores"
         static let toUserIconVC = "toUserIconVC"
         static let toTryGame = "toTryGame"
+        static let toPreviousScoresVC = "toPreviousScoresVC"
         struct containers {
             static let showMultiple = "showMultiple"
             static let showBoolean = "showBoolean"

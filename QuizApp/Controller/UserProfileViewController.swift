@@ -8,22 +8,32 @@
 import UIKit
 import FirebaseAuth
 
-class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class UserProfileViewController: UIViewController  {
 
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var userScoresTableView: UITableView!
+    
+    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var mailLabel: UILabel!
+    @IBOutlet weak var totalScoreLabel: UILabel!
+    
+    
+    @IBOutlet weak var nicknameView: UIView!
+    @IBOutlet weak var mailView: UIView!
+    @IBOutlet weak var totalScoreView: UIView!
+    
     
     var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundImage(imageName: "background3")
-
-        userScoresTableView.delegate = self
-        userScoresTableView.dataSource = self
     
+        nicknameView.applyCornerRadiusWithShadow()
+        mailView.applyCornerRadiusWithShadow()
+        totalScoreView.applyCornerRadiusWithShadow()
+        
         backgroundView.applyCornerRadiusWithShadow()
         fetchCurrentUser()
     }
@@ -47,7 +57,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     func updateUI() {
         guard let user = user else { return }
         nameLabel.text = user.name
-        userScoresTableView.reloadData()
+//        userScoresTableView.reloadData()
     }
     
     func fetchProfileIcon(userId: String) {
@@ -75,19 +85,16 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user?.Scores.count ?? 0
+    @IBAction func previousScoresButton(_ sender: Any) {
+        self.performSegue(withIdentifier: K.segue.toPreviousScoresVC, sender: self)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "userScoresCell", for: indexPath) as! UserScoresTableViewCell
-        if let score = user?.Scores[indexPath.row] {
-            cell.dateLabel.text = score.date
-            cell.pointLabel.text = "\(score.score)"
-        }
-        return cell
+    @IBAction func resetPasswordButton(_ sender: Any) {
     }
     
+    
+    @IBAction func deleteAccountButton(_ sender: Any) {
+    }
     
 }
 extension UIViewController {

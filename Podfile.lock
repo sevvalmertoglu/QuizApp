@@ -45,6 +45,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (3.2.0)
   - leveldb-library (1.22.2)
+  - lottie-ios (4.3.4)
   - PromisesObjC (2.3.1)
   - RecaptchaInterop (100.0.0)
 
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - FirebaseCore
   - FirebaseDatabase
   - FirebaseStorage
+  - lottie-ios
 
 SPEC REPOS:
   trunk:
@@ -68,6 +70,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - lottie-ios
     - PromisesObjC
     - RecaptchaInterop
 
@@ -84,9 +87,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
   GTMSessionFetcher: 41b9ef0b4c08a6db4b7eb51a21ae5183ec99a2c8
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
+  lottie-ios: 3d98679b41fa6fd6aff2352b3953dbd3df8a397e
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
 
-PODFILE CHECKSUM: 6088c00a4cc636fbb94e2e792449cb297a18adce
+PODFILE CHECKSUM: e1e99c7fc6a423353fa3ec19f80c51891d96e438
 
 COCOAPODS: 1.12.1

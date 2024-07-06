@@ -29,6 +29,7 @@ class GameViewController: UIViewController {
     var multipleDelegate: GameViewControllerDelegate?
     var booleanDelegate: GameViewControllerDelegate?
     
+    private var activityIndicator: CustomActivityIndicator?
     
     // Hide navigationbar on the welcome screen
     override func viewWillAppear(_ animated: Bool) {
@@ -48,12 +49,33 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupActivityIndicator()
         if let safeSettingsOptions = settingsOptions {
+            startLoading()
             print(safeSettingsOptions)
             gameManager.fetchQuizData(settingsOptions: safeSettingsOptions)
+            self.stopLoading()
         }
        
     }
+    
+    private func setupActivityIndicator() {
+          activityIndicator = CustomActivityIndicator(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+          activityIndicator?.center = self.view.center
+          activityIndicator?.isHidden = true
+          
+          if let activityIndicator = activityIndicator {
+              self.view.addSubview(activityIndicator)
+          }
+      }
+      
+      func startLoading() {
+          activityIndicator?.startAnimating()
+      }
+      
+      func stopLoading() {
+          activityIndicator?.stopAnimating()
+      }
     
     // Send data to view controllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

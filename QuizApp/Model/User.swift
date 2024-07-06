@@ -12,17 +12,10 @@ struct User {
     var nickname: String
     var email: String
     var Scores: [Score]
-//    var TotalScores: [TotalScores]
-
 }
 
 struct Score: Codable {
     let date: String
-//    let difficulty: String
-//    let topic: String
     let score: Int
 }
 
-//struct TotalScores: Codable {
-//    let totalScore: Int
-//}

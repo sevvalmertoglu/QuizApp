@@ -32,6 +32,8 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var topThree: [(nickname: String, totalScore: Int, userId: String)] = []
     var topFourToTen: [(nickname: String, totalScore: Int, userId: String)] = []
     
+    private var activityIndicator: CustomActivityIndicator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundImage(imageName: "background4")
@@ -43,12 +45,32 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         leadershipTableView.delegate = self
         leadershipTableView.dataSource = self
         
+        setupActivityIndicator()
         fetchLeaderboard()
-      
     }
     
+    private func setupActivityIndicator() {
+          activityIndicator = CustomActivityIndicator(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+          activityIndicator?.center = self.view.center
+          activityIndicator?.isHidden = true
+          
+          if let activityIndicator = activityIndicator {
+              self.view.addSubview(activityIndicator)
+          }
+      }
+      
+      func startLoading() {
+          activityIndicator?.startAnimating()
+      }
+      
+      func stopLoading() {
+          activityIndicator?.stopAnimating()
+      }
+    
     func fetchLeaderboard() {
+        startLoading()
         FirebaseManager.shared.fetchLeaderboard { [weak self] result in
+            self?.stopLoading()
             switch result {
             case .success(let leaderboard):
                 self?.leaderboard = leaderboard
@@ -89,7 +111,9 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
        }
        
        func fetchProfileIcon(userId: String, imageView: UIImageView) {
+           startLoading()
            FirebaseManager.shared.fetchUserIcon(userId: userId) { result in
+               self.stopLoading()
                switch result {
                case .success(let iconName):
                    DispatchQueue.main.async {

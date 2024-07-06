@@ -11,5 +11,7 @@ pod 'FirebaseAuth'
 pod 'FirebaseStorage'
 pod 'FirebaseCore'
 pod 'FirebaseDatabase'
+pod 'lottie-ios'
+
 
 end

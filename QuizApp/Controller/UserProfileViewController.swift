@@ -18,13 +18,14 @@ class UserProfileViewController: UIViewController  {
     @IBOutlet weak var mailLabel: UILabel!
     @IBOutlet weak var totalScoreLabel: UILabel!
     
-    
     @IBOutlet weak var nicknameView: UIView!
     @IBOutlet weak var mailView: UIView!
     @IBOutlet weak var totalScoreView: UIView!
     
     
     var user: User?
+    
+    private var activityIndicator: CustomActivityIndicator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +34,35 @@ class UserProfileViewController: UIViewController  {
         nicknameView.applyCornerRadiusWithShadow()
         mailView.applyCornerRadiusWithShadow()
         totalScoreView.applyCornerRadiusWithShadow()
-        
         backgroundView.applyCornerRadiusWithShadow()
+       
+        setupActivityIndicator()
         fetchCurrentUser()
     }
     
- 
+    private func setupActivityIndicator() {
+          activityIndicator = CustomActivityIndicator(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+          activityIndicator?.center = self.view.center
+          activityIndicator?.isHidden = true
+          
+          if let activityIndicator = activityIndicator {
+              self.view.addSubview(activityIndicator)
+          }
+      }
+      
+      func startLoading() {
+          activityIndicator?.startAnimating()
+      }
+      
+      func stopLoading() {
+          activityIndicator?.stopAnimating()
+      }
     
     func fetchCurrentUser() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
+        startLoading()
         FirebaseManager.shared.fetchUserData(userId: userId) { [weak self] result in
+            self?.stopLoading()
             switch result {
             case .success(let user):
                 self?.user = user
@@ -52,16 +72,20 @@ class UserProfileViewController: UIViewController  {
                 print("Error fetching user data: \(error.localizedDescription)")
             }
         }
+       
     }
-    
+
     func updateUI() {
         guard let user = user else { return }
         nameLabel.text = user.name
-//        userScoresTableView.reloadData()
+        nicknameLabel.text = user.nickname
+        mailLabel.text = user.email
     }
     
     func fetchProfileIcon(userId: String) {
+        startLoading()
         FirebaseManager.shared.fetchUserIcon(userId: userId) { [weak self] result in
+            self?.stopLoading()
             switch result {
             case .success(let iconName):
                 self?.userProfileImageView.image = UIImage(named: iconName)

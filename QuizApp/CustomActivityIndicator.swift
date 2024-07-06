@@ -23,7 +23,7 @@ class CustomActivityIndicator: UIView {
     }
     
     private func setupAnimation() {
-        animationView = LottieAnimationView(name: "Animation - 1720274300680")
+        animationView = LottieAnimationView(name: "Animation - 1720278360102.json")
         animationView?.frame = self.bounds
         animationView?.contentMode = .scaleAspectFit
         animationView?.loopMode = .loop

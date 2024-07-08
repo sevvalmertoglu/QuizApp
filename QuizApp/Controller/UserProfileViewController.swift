@@ -114,6 +114,18 @@ class UserProfileViewController: UIViewController  {
     }
     
     @IBAction func resetPasswordButton(_ sender: Any) {
+        guard let email = user?.email else {
+            makeAlert(titleInput: "Error", messageInput: "User email address not found.")
+            return
+        }
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                self.makeAlert(titleInput: "Error", messageInput: "Error sending password reset email: \(error.localizedDescription)")
+            } else {
+                self.makeAlert(titleInput: "Successful!", messageInput: "Password reset email has been sent successfully.")
+            }
+        }
     }
     
     

@@ -86,7 +86,7 @@ class UserProfileViewController: UIViewController  {
             self?.stopLoading()
             switch result {
             case .success(let iconName):
-                self?.userProfileImageView.image = UIImage(named: iconName)
+                self?.userProfileImageView.image = UIImage(named: iconName) ?? UIImage(named: "user")
             case .failure(let error):
                 self?.makeAlert(titleInput: "ERORR!", messageInput: "Profile icon failed to load: \(error.localizedDescription)")
                 print("Error fetching profile icon: \(error.localizedDescription)")

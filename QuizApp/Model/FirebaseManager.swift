@@ -30,23 +30,46 @@ class FirebaseManager {
         }
     }
 
+//    func register(email: String, password: String, name: String, nickname: String, completion: @escaping (Result<User, Error>) -> Void) {
+//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//            if let error = error {
+//                completion(.failure(error))
+//            } else if let user = authResult?.user {
+//                let userData = ["name": name, "nickname": nickname, "email": email]
+//                self.dbRef.child("users").child(user.uid).setValue(userData) { error, _ in
+//                    if let error = error {
+//                        completion(.failure(error))
+//                    } else {
+//                        let newUser = User(name: name, nickname: nickname, email: email, Scores: [])
+//                        completion(.success(newUser))
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
     func register(email: String, password: String, name: String, nickname: String, completion: @escaping (Result<User, Error>) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let user = authResult?.user {
-                let userData = ["name": name, "nickname": nickname, "email": email]
-                self.dbRef.child("users").child(user.uid).setValue(userData) { error, _ in
-                    if let error = error {
-                        completion(.failure(error))
-                    } else {
-                        let newUser = User(name: name, nickname: nickname, email: email, Scores: [])
-                        completion(.success(newUser))
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let error = error {
+                    completion(.failure(error))
+                } else if let user = authResult?.user {
+                    let userData = [
+                        "name": name,
+                        "nickname": nickname,
+                        "email": email,
+                        "profileIcon": "user" // Set the default profile icon
+                    ]
+                    self.dbRef.child("users").child(user.uid).setValue(userData) { error, _ in
+                        if let error = error {
+                            completion(.failure(error))
+                        } else {
+                            let newUser = User(name: name, nickname: nickname, email: email, Scores: [])
+                            completion(.success(newUser))
+                        }
                     }
                 }
             }
         }
-    }
 
     // MARK: - Database Methods
 

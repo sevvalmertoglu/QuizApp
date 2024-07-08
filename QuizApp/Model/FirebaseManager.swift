@@ -148,6 +148,13 @@ class FirebaseManager {
             }
         }
     }
+    
+    func deleteUserData(userId: String, completion: @escaping (Error?) -> Void) {
+            let userRef = dbRef.child("users").child(userId)
+            userRef.removeValue { error, _ in
+                completion(error)
+            }
+        }
 
     // MARK: - Helper Methods
     

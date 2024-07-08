@@ -16,12 +16,10 @@ class UserProfileViewController: UIViewController  {
     
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
-    @IBOutlet weak var totalScoreLabel: UILabel!
     
     @IBOutlet weak var nicknameView: UIView!
     @IBOutlet weak var mailView: UIView!
     @IBOutlet weak var totalScoreView: UIView!
-    
     
     var user: User?
     
@@ -41,7 +39,7 @@ class UserProfileViewController: UIViewController  {
     }
     
     private func setupActivityIndicator() {
-          activityIndicator = CustomActivityIndicator(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+          activityIndicator = CustomActivityIndicator(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
           activityIndicator?.center = self.view.center
           activityIndicator?.isHidden = true
           
@@ -90,6 +88,7 @@ class UserProfileViewController: UIViewController  {
             case .success(let iconName):
                 self?.userProfileImageView.image = UIImage(named: iconName)
             case .failure(let error):
+                self?.makeAlert(titleInput: "ERORR!", messageInput: "Profile icon failed to load: \(error.localizedDescription)")
                 print("Error fetching profile icon: \(error.localizedDescription)")
             }
         }
@@ -130,6 +129,37 @@ class UserProfileViewController: UIViewController  {
     
     
     @IBAction func deleteAccountButton(_ sender: Any) {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            makeAlert(titleInput: "Error", messageInput: "User not authenticated.")
+            return
+        }
+        
+        let user = Auth.auth().currentUser
+        startLoading()
+      
+            user?.delete { error in
+                self.stopLoading()
+                if let error = error {
+                    self.makeAlert(titleInput: "ERROR", messageInput: "Error while deleting account: \(error.localizedDescription)")
+                } else {
+                    let alert = UIAlertController(title: "Successful", message: "The account has been successfully deleted.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                        FirebaseManager.shared.deleteUserData(userId: userId) { error in
+                            if let error = error {
+                                self.stopLoading()
+                                self.makeAlert(titleInput: "ERROR", messageInput: "Error while deleting user data: \(error.localizedDescription)")
+                                return
+                            }
+                        }
+                        self.performSegue(withIdentifier: "toViewController", sender: nil)
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        
+        
+        
     }
     
 }

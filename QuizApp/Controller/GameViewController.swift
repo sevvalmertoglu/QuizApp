@@ -54,13 +54,13 @@ class GameViewController: UIViewController {
             startLoading()
             print(safeSettingsOptions)
             gameManager.fetchQuizData(settingsOptions: safeSettingsOptions)
-            self.stopLoading()
+          
         }
        
     }
     
     private func setupActivityIndicator() {
-          activityIndicator = CustomActivityIndicator(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+          activityIndicator = CustomActivityIndicator(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
           activityIndicator?.center = self.view.center
           activityIndicator?.isHidden = true
           
@@ -135,6 +135,7 @@ extension GameViewController: GameManagerDelegate {
     func updateUI(uiData: UIData) {
         // Update main UI
         DispatchQueue.main.async{
+            self.stopLoading()
             self.quizLabel.text = uiData.question.htmlAttributedString!.string
             self.quizProgressView.setProgress(uiData.percentage, animated: true)
         }

@@ -16,8 +16,6 @@
 		A90ABAC12C18B8D5000131DC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A90ABAC02C18B8D5000131DC /* Base */; };
 		A91814602C2980DC000726E0 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918145F2C2980DC000726E0 /* ScoresViewController.swift */; };
 		A91814642C29A153000726E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91814632C29A153000726E0 /* User.swift */; };
-		A91814672C29A8F0000726E0 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814652C29A8F0000726E0 /* correct.mp3 */; };
-		A91814682C29A8F0000726E0 /* false.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91814662C29A8F0000726E0 /* false.mp3 */; };
 		A918146A2C2ADE98000726E0 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91814692C2ADE98000726E0 /* FirebaseManager.swift */; };
 		A932FB832C399503006CF7A0 /* Animation - 1720278360102.json in Resources */ = {isa = PBXBuildFile; fileRef = A932FB822C399503006CF7A0 /* Animation - 1720278360102.json */; };
 		A9332DDB2C32F408001C3F86 /* UserScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332DDA2C32F408001C3F86 /* UserScoresTableViewCell.swift */; };
@@ -39,7 +37,9 @@
 		A976E9032C1C4C830009D1B0 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E9022C1C4C830009D1B0 /* GameOverViewController.swift */; };
 		A976E9062C1C7DF10009D1B0 /* MultipleButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E9052C1C7DF10009D1B0 /* MultipleButtonViewController.swift */; };
 		A976E9082C1C7E020009D1B0 /* BooleanButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976E9072C1C7E020009D1B0 /* BooleanButtonViewController.swift */; };
-		A9ECE71E2C1B29A4000DB6E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9ECE71D2C1B29A4000DB6E9 /* GoogleService-Info.plist */; };
+		A9A182372C400941000A0C3D /* false.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9A182362C400940000A0C3D /* false.mp3 */; };
+		A9A182392C400DCD000A0C3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9A182382C400DCD000A0C3D /* GoogleService-Info.plist */; };
+		A9A1823B2C400E05000A0C3D /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9A1823A2C400E05000A0C3D /* correct.mp3 */; };
 		A9ECE7202C1B2DC8000DB6E9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECE71F2C1B2DC8000DB6E9 /* LoginViewController.swift */; };
 		A9ECE7222C1B2DD6000DB6E9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECE7212C1B2DD5000DB6E9 /* RegisterViewController.swift */; };
 		A9ECE7242C1B2E56000DB6E9 /* NumberOfQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECE7232C1B2E56000DB6E9 /* NumberOfQuestionsViewController.swift */; };
@@ -59,8 +59,6 @@
 		A90ABAC22C18B8D5000131DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A918145F2C2980DC000726E0 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 		A91814632C29A153000726E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A91814652C29A8F0000726E0 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = correct.mp3; path = ../../correct.mp3; sourceTree = "<group>"; };
-		A91814662C29A8F0000726E0 /* false.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = false.mp3; path = ../../false.mp3; sourceTree = "<group>"; };
 		A91814692C2ADE98000726E0 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		A932FB822C399503006CF7A0 /* Animation - 1720278360102.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Animation - 1720278360102.json"; path = "../../../Downloads/Animation - 1720278360102.json"; sourceTree = "<group>"; };
 		A9332DDA2C32F408001C3F86 /* UserScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScoresTableViewCell.swift; sourceTree = "<group>"; };
@@ -82,7 +80,9 @@
 		A976E9022C1C4C830009D1B0 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		A976E9052C1C7DF10009D1B0 /* MultipleButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleButtonViewController.swift; sourceTree = "<group>"; };
 		A976E9072C1C7E020009D1B0 /* BooleanButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanButtonViewController.swift; sourceTree = "<group>"; };
-		A9ECE71D2C1B29A4000DB6E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9A182362C400940000A0C3D /* false.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = false.mp3; sourceTree = "<group>"; };
+		A9A182382C400DCD000A0C3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9A1823A2C400E05000A0C3D /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		A9ECE71F2C1B2DC8000DB6E9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9ECE7212C1B2DD5000DB6E9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A9ECE7232C1B2E56000DB6E9 /* NumberOfQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfQuestionsViewController.swift; sourceTree = "<group>"; };
@@ -131,8 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				A932FB822C399503006CF7A0 /* Animation - 1720278360102.json */,
-				A91814652C29A8F0000726E0 /* correct.mp3 */,
-				A91814662C29A8F0000726E0 /* false.mp3 */,
+				A9A1823A2C400E05000A0C3D /* correct.mp3 */,
+				A9A182362C400940000A0C3D /* false.mp3 */,
 				A90ABAC92C18B928000131DC /* Model */,
 				A90ABAC82C18B919000131DC /* View */,
 				A90ABACA2C18B931000131DC /* Controller */,
@@ -141,7 +141,7 @@
 				A976E8FA2C1C4AE60009D1B0 /* Constants.swift */,
 				A953B0202C39880F00050EA3 /* CustomActivityIndicator.swift */,
 				A90ABABD2C18B8D5000131DC /* Assets.xcassets */,
-				A9ECE71D2C1B29A4000DB6E9 /* GoogleService-Info.plist */,
+				A9A182382C400DCD000A0C3D /* GoogleService-Info.plist */,
 				A90ABABF2C18B8D5000131DC /* LaunchScreen.storyboard */,
 				A90ABAC22C18B8D5000131DC /* Info.plist */,
 			);
@@ -278,12 +278,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A91814682C29A8F0000726E0 /* false.mp3 in Resources */,
-				A91814672C29A8F0000726E0 /* correct.mp3 in Resources */,
+				A9A182392C400DCD000A0C3D /* GoogleService-Info.plist in Resources */,
+				A9A182372C400941000A0C3D /* false.mp3 in Resources */,
 				A90ABABE2C18B8D5000131DC /* Assets.xcassets in Resources */,
-				A9ECE71E2C1B29A4000DB6E9 /* GoogleService-Info.plist in Resources */,
 				A932FB832C399503006CF7A0 /* Animation - 1720278360102.json in Resources */,
 				A90ABAC12C18B8D5000131DC /* Base in Resources */,
+				A9A1823B2C400E05000A0C3D /* correct.mp3 in Resources */,
 				A90ABABC2C18B8D3000131DC /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
